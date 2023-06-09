@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java script tut 4</title>
+
+
+</head>
+
+<body style="background-color:rgb(160, 95, 96)">
+    <center>
+        <form>
+            <h2>REGISTRATION</h2>
+            <div>
+                <label id="name-label" for="name">NAME</label>
+                <input type="text" name="name" id="name" placeholder="enter your name" required><br>
+
+                <label id="email-label" for="email">EMAIL</label>
+                <input type="email" name="email" id="email" placeholder="pks149@gmail.com" required><br><br>
+
+                <label id="number-label" for="number">NUMBER</label>
+                <input type="number" name="number" id="number" placeholder="1234567896" required><br><br>
+
+
+
+                <label id="number-age" for="number">age </label>
+                <input type="number" name="age" id="age" placeholder="age" max="100" min="0"><br><br>
+
+                <button type="button" onclick="fico()">SUBMIT</button>
+
+
+        </form>
+
+        <div id="box"></div>
+        <img src="web.jpeg" id="img"><br>
+        <button type="button" onclick="changeimg()">CHANGE</button>
+        <br><br>
+        <!-- Write a JavaScript Script that will increase and decrease the font size of text on button click. -->
+        <button type="button" id="increasesize" onclick="f1()">INCREASE-size</button>
+        <button type="button" id="decreasesize" onclick="f2()">DECREASE-size</button>
+        <p id="text">Always try to achieve maximum</p><br>
+        <h2 id="date"></h2>
+        <script>
+            function fico() {
+
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const number = document.getElementById("number").value;
+                const age = document.getElementById("age").value;
+
+
+
+
+                const box = document.getElementById("box");
+
+                const nameElement = document.createElement("p");
+                nameElement.innerHTML = "Name: " + name;
+                box.appendChild(nameElement);
+
+                const emailElement = document.createElement("p");
+                emailElement.innerHTML = "Email: " + email;
+                box.appendChild(emailElement);
+
+                const phoneElement = document.createElement("p");
+                phoneElement.innerHTML = "Phone: " + number;
+                box.appendChild(phoneElement);
+                const ageElement = document.createElement("p");
+                ageElement.innerHTML = "Age: " + age;
+                box.appendChild(ageElement);
+
+            }
+            function changeimg() {
+                const image = document.getElementById("img");
+                if (image.src.match("web.jpeg")) {
+                    image.src = "web2.jpeg";
+                }
+                else image.src = "web.jpeg";
+                console.log(image);
+
+
+
+            }
+            const text = document.getElementById("text");
+
+            let fontSize = 20;
+
+            function f1() {
+
+                fontSize += 2;
+
+                text.style.fontSize = `${fontSize}px`;
+            };
+            function f2() {
+
+                fontSize -= 2;
+
+                text.style.fontSize = `${fontSize}px`;
+            };
+            setInterval(() => {
+                const d = new Date()
+
+                document.getElementById("date").innerText = "date: " + d;
+            }, 1000);
+
+        </script>
+    </center>
+</body>
+
+</html>
